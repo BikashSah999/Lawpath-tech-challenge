@@ -26,7 +26,7 @@ export default function Home() {
     }));
   }, [formData.postcode, formData.suburb, formData.state]);
 
-  const validateForm = () => {
+  const validateForm = (): boolean => {
     let isValid = true;
     const newErrors = { ...initialErrors };
 
@@ -49,7 +49,7 @@ export default function Home() {
     return isValid;
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
     if (validateForm()) {
