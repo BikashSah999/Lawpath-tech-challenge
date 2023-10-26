@@ -55,17 +55,17 @@ export default function Home() {
     return isValid;
   };
 
-  const [handleSearch, { loading, data, error }] = useLazyQuery(GET_LOCALITIES);
+  const [handleSearch, { loading, data, error }] = useLazyQuery(GET_LOCALITIES, {
+    variables: {
+      q: formData.suburb,
+    },
+  });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
     if (validateForm()) {
-      handleSearch({
-        variables: {
-          q: formData.suburb,
-        },
-      });
+      handleSearch();
     }
   };
 
@@ -116,7 +116,7 @@ export default function Home() {
         type: 'error',
       });
     }
-  }, [data, error]);
+  }, [data, error, formData.postcode, formData.state]);
 
   return (
     <main className='flex flex-col items-center justify-between gap-y-8 p-8 md:p-24'>
