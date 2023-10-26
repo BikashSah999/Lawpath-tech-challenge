@@ -112,7 +112,7 @@ export default function Home() {
 
     if (error) {
       setNotification({
-        message: error.message,
+        message: formData.suburb.length > 3 ? error.message : 'Please enter at least 3 characters for Suburb.',
         type: 'error',
       });
     }
