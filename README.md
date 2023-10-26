@@ -20,9 +20,11 @@ Add the required environment variables in .env
 ```bash
 yarn custom-server
 ```
+Server should be running on localhost:4000
 
 ### Run the app
 Open another terminal
 ```bash
 yarn dev
 ```
+App should be running on localhost:3000
