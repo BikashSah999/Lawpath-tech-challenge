@@ -8,9 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
       <Head>
-        <title>
-          Lawpath - Aus Address Validation
-        </title>
+        <title>Lawpath - Aus Address Validation</title>
       </Head>
       <Component {...pageProps} />
     </ApolloProvider>

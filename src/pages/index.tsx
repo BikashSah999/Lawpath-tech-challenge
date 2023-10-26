@@ -55,11 +55,14 @@ export default function Home() {
     return isValid;
   };
 
-  const [handleSearch, { loading, data, error }] = useLazyQuery(GET_LOCALITIES, {
-    variables: {
-      q: formData.suburb,
-    },
-  });
+  const [handleSearch, { loading, data, error }] = useLazyQuery(
+    GET_LOCALITIES,
+    {
+      variables: {
+        q: formData.suburb,
+      },
+    }
+  );
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -112,7 +115,10 @@ export default function Home() {
 
     if (error) {
       setNotification({
-        message: formData.suburb.length > 3 ? error.message : 'Please enter at least 3 characters for Suburb.',
+        message:
+          formData.suburb.length > 3
+            ? error.message
+            : 'Please enter at least 3 characters for Suburb.',
         type: 'error',
       });
     }
